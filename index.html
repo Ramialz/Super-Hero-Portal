@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aegis Hero Portal | Emergency Superhero Dispatch Network</title>
+  <meta name="description" content="Direct emergency superhero dispatch portal. Connecting citizens in peril with verified superhuman operatives in real time.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/heroes.css">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Aegis Hero Portal Homepage">
+        <img src="assets/favicon.svg" alt="Aegis Shield" class="brand-icon">
+        <span>AEGIS <span class="brand-highlight">HEROES</span></span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- Nav Links -->
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="pages/heroes.html" class="nav-link">Heroes</a></li>
+          <li><a href="pages/report.html" class="nav-link">Report an Issue</a></li>
+          <li><a href="pages/admin.html" class="nav-link">Admin Dashboard</a></li>
+          <li><a href="pages/about-contact.html" class="nav-link">About &amp; Contact</a></li>
+          <li class="nav-cta">
+            <a href="pages/report.html" class="btn btn-primary btn-sm">🚨 Emergency SOS</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    
+    <!-- Hero Banner Section -->
+    <section class="hero-banner">
+      <div class="container hero-banner-content">
+        <div class="hero-banner-text">
+          <div class="hero-badge-wrap">
+            <span class="comic-badge">🚨 EMERGENCY SUPERHUMAN RESPONSE GRID</span>
+          </div>
+          <h1 class="hero-title">
+            WHEN DANGER STRIKES,
+            <span class="hero-title-highlight">HEROES ANSWER.</span>
+          </h1>
+          <p class="hero-tagline">
+            Connect directly with verified superheroes across all metropolitan defense zones.
+            From natural catastrophes and rogue meta-villains to urgent hostage rescues—rapid assistance is one dispatch away.
+          </p>
+          <div class="hero-actions">
+            <a href="pages/heroes.html" class="btn btn-accent btn-lg">
+              🔍 Find a Hero
+            </a>
+            <a href="pages/report.html" class="btn btn-primary btn-lg pulse-glow">
+              ⚡ Report an Emergency
+            </a>
+          </div>
+        </div>
+
+        <!-- Comic Shield Emblem Graphic -->
+        <div class="hero-banner-art">
+          <div class="comic-emblem-wrap">
+            <!-- Rotating Sunburst -->
+            <svg viewBox="0 0 200 200" class="comic-burst" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="100,10 115,70 170,30 140,85 200,85 150,120 190,165 130,150 135,210 100,165 65,210 70,150 10,165 50,120 0,85 60,85 30,30 85,70" fill="#ffb703" stroke="#111827" stroke-width="3"/>
+            </svg>
+            <!-- Shield Centerpiece -->
+            <img src="assets/favicon.svg" alt="Aegis Comic Crest" class="comic-shield-center">
+            <div class="comic-callout-sticker">24/7 ACTIVE DISPATCH!</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Strip Section -->
+    <section class="stats-strip-section">
+      <div class="container">
+        <div class="stats-grid">
+          <!-- Total Registered Heroes -->
+          <div class="stat-card">
+            <div class="stat-icon">🦸‍♂️</div>
+            <div class="stat-number">12+</div>
+            <div class="stat-label">Active Operatives</div>
+          </div>
+          <!-- Requests Resolved -->
+          <div class="stat-card">
+            <div class="stat-icon">🏆</div>
+            <div class="stat-number">1,482</div>
+            <div class="stat-label">Crises Neutralized</div>
+          </div>
+          <!-- Average Response Time -->
+          <div class="stat-card">
+            <div class="stat-icon">⚡</div>
+            <div class="stat-number">3.2m</div>
+            <div class="stat-label">Avg. Response Time</div>
+          </div>
+          <!-- Protected Sectors -->
+          <div class="stat-card">
+            <div class="stat-icon">🛡️</div>
+            <div class="stat-number">8</div>
+            <div class="stat-label">Guarded City Sectors</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section (3-Step Comic Panels) -->
+    <section class="how-it-works-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="comic-badge">MISSION PROTOCOL</span>
+          <h2 class="section-title">HOW CITIZEN DISPATCH WORKS</h2>
+          <p class="section-subtitle">
+            Three simple steps between a citizen distress call and boots-on-the-ground superhero intervention.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <span class="step-marker">01</span>
+            <div class="step-icon-wrap">📡</div>
+            <h3 class="step-title">REPORT YOUR EMERGENCY</h3>
+            <p class="step-text">
+              Submit your location, hazard classification (Rescue, Crime, Disaster), and urgency level. Our secure channel encrypts civilian coordinates instantly.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <span class="step-marker">02</span>
+            <div class="step-icon-wrap">🤖⚡</div>
+            <h3 class="step-title">AI HERO MATCHING</h3>
+            <p class="step-text">
+              The Aegis tactical neural matrix calculates optimal hero powers, proximity, and mission clearance to assign the most equipped operative.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <span class="step-marker">03</span>
+            <div class="step-icon-wrap">🛡️💥</div>
+            <h3 class="step-title">IMMEDIATE RESOLUTION</h3>
+            <p class="step-text">
+              Track live dispatch updates via your unique Ticket ID. Heroes deploy via supersonic flight or phase teleportation to secure the scene safely.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Heroes Preview Section -->
+    <section class="featured-heroes-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="comic-badge badge-alt">TOP OPERATIVES</span>
+          <h2 class="section-title">FEATURED GUARDIANS ON STANDBY</h2>
+          <p class="section-subtitle">
+            A small glimpse of the defenders protecting our skyline. View our full interactive roster for complete tactical dossiers.
+          </p>
+        </div>
+
+        <!-- Dynamic Featured Cards rendered via JS -->
+        <div class="featured-grid" id="featuredHeroesGrid">
+          <!-- Fallback or populated by JS -->
+        </div>
+
+        <div class="text-center">
+          <a href="pages/heroes.html" class="btn btn-secondary btn-lg">
+            View Complete Superhero Roster (9 Active Heroes) →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency Hotline Banner -->
+    <section class="container">
+      <div class="emergency-callout">
+        <div class="callout-info">
+          <h2 class="callout-title">IS YOUR SITUATION CRITICAL?</h2>
+          <p class="callout-text">
+            For catastrophic breaches, cosmic anomalies, or immediate life endangerment, submit an Omega-Urgency distress signal right now.
+          </p>
+        </div>
+        <div class="callout-action">
+          <a href="pages/report.html" class="btn btn-accent btn-lg">
+            Transmit Distress Signal
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="assets/favicon.svg" alt="Aegis Shield" class="brand-icon">
+            <span>AEGIS HEROES</span>
+          </div>
+          <p class="footer-desc">
+            The Aegis Hero Portal is the authorized civilian interface for the Global Superhuman Defense Coalition. Operating under the World Defense Accords to protect innocent lives across all sectors.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Portal Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home Overview</a></li>
+            <li><a href="pages/heroes.html">Hero Roster</a></li>
+            <li><a href="pages/report.html">Report Distress Call</a></li>
+            <li><a href="pages/admin.html">Admin Command Center</a></li>
+            <li><a href="pages/about-contact.html">About &amp; Inquiries</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Emergency Zones</h4>
+          <ul class="footer-links">
+            <li><a href="pages/heroes.html">Metropolis Core</a></li>
+            <li><a href="pages/heroes.html">Gotham Heights</a></li>
+            <li><a href="pages/heroes.html">Coast City</a></li>
+            <li><a href="pages/heroes.html">Starling Bay</a></li>
+            <li><a href="pages/heroes.html">Neo-Tokyo Sector</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Priority Hotline</h4>
+          <div class="footer-hotline">
+            <div class="footer-hotline-title">24/7 METRO CRISIS FREQUENCY</div>
+            <div class="footer-hotline-num">1-800-AEGIS-HERO</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Aegis Superhero Help Portal. Authorized under Superhuman Defense Protocol 12-A.</div>
+        <div>Built with HTML5, CSS3, &amp; Vanilla JS &bull; LocalStorage Persistent</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/navbar.js"></script>
+  <script>
+    // Quick populate featured heroes on homepage
+    document.addEventListener("DOMContentLoaded", () => {
+      const grid = document.getElementById("featuredHeroesGrid");
+      if (grid && typeof getAllHeroes === "function") {
+        const top3 = getAllHeroes().slice(0, 3);
+        grid.innerHTML = top3.map(hero => {
+          const statusSlug = hero.status.toLowerCase().replace(/\s+/g, "-");
+          return `
+            <article class="hero-card">
+              <div class="hero-card-banner" style="background: ${hero.avatarBg};">
+                <div class="hero-card-avatar">${hero.avatarIcon}</div>
+                <span class="status-badge status-${statusSlug}"><span class="status-dot"></span>${hero.status}</span>
+              </div>
+              <div class="hero-card-body">
+                <div class="hero-card-header">
+                  <h3 class="hero-alias">${hero.alias}</h3>
+                  <span class="hero-real-name">${hero.name}</span>
+                </div>
+                <div class="hero-card-power">
+                  <span class="power-label">⚡ Superpower:</span>
+                  <p class="power-text">${hero.power}</p>
+                </div>
+                <div class="hero-meta-row">
+                  <span>📍 ${hero.city}</span>
+                  <span>⏱️ ${hero.responseTime}</span>
+                </div>
+                <div class="hero-card-actions">
+                  <a href="pages/hero-detail.html?id=${hero.id}" class="btn btn-secondary btn-sm">Dossier</a>
+                  <a href="pages/report.html?hero=${encodeURIComponent(hero.alias)}" class="btn btn-primary btn-sm">Request</a>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join("");
+      }
+    });
+  </script>
+</body>
+</html>
