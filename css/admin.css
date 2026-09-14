@@ -1,0 +1,250 @@
+/* ==========================================================================
+   Superhero Help Portal - Admin & Dispatch Command Center Styles
+   ========================================================================== */
+
+.admin-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.admin-live-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #fef2f2;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+}
+
+.live-beacon-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  animation: pulseBeacon 1.5s infinite;
+}
+
+@keyframes pulseBeacon {
+  0% { transform: scale(0.9); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+  100% { transform: scale(0.9); opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   KPI Metric Counter Cards
+   -------------------------------------------------------------------------- */
+.admin-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.kpi-card {
+  background-color: var(--color-surface);
+  border: var(--comic-border-thick);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-fast);
+}
+
+.kpi-card:hover {
+  transform: translateY(-3px);
+}
+
+.kpi-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+}
+
+.kpi-total::before { background-color: var(--color-secondary); }
+.kpi-pending::before { background-color: var(--color-accent-dark); }
+.kpi-resolved::before { background-color: #10b981; }
+
+.kpi-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.kpi-number {
+  font-family: var(--font-display);
+  font-size: 3.25rem;
+  line-height: 1;
+  color: var(--color-secondary);
+  letter-spacing: 1px;
+}
+
+.kpi-label {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.25rem;
+}
+
+.kpi-icon-wrap {
+  font-size: 2.75rem;
+  filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.1));
+}
+
+/* --------------------------------------------------------------------------
+   Admin Management Bar & Filters
+   -------------------------------------------------------------------------- */
+.admin-toolbar-card {
+  background-color: var(--color-surface);
+  border: var(--comic-border-thick);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-filter-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-filter-btn {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  background-color: #f1f5f9;
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.admin-filter-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.admin-filter-btn.active {
+  background-color: var(--color-secondary);
+  color: #ffffff;
+  box-shadow: 1px 1px 0px var(--color-border);
+  transform: translate(1px, 1px);
+}
+
+.admin-search-wrap {
+  max-width: 320px;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Admin Table Styling
+   -------------------------------------------------------------------------- */
+.admin-table-card {
+  background-color: var(--color-surface);
+  border: var(--comic-border-thick);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.citizen-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.citizen-name {
+  color: var(--color-dark);
+}
+
+.citizen-contact {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+.location-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: block;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-actions-col {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.admin-row.is-resolved-row {
+  background-color: #fafffc;
+}
+
+.admin-row.is-resolved-row:hover {
+  background-color: #f0fdf4;
+}
+
+.empty-admin-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-muted);
+  padding: 2rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Admin Layout
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .admin-kpi-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .admin-toolbar-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-search-wrap {
+    max-width: none;
+  }
+
+  .admin-filter-group {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .admin-kpi-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

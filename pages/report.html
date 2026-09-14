@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report an Issue | Aegis Emergency Dispatch</title>
+  <meta name="description" content="Transmit an emergency distress signal to the Aegis Superhero Network. Direct dispatch with live ticket tracking.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="Aegis Hero Portal Homepage">
+        <img src="../assets/favicon.svg" alt="Aegis Shield" class="brand-icon">
+        <span>AEGIS <span class="brand-highlight">HEROES</span></span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- Nav Links -->
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="heroes.html" class="nav-link">Heroes</a></li>
+          <li><a href="report.html" class="nav-link active">Report an Issue</a></li>
+          <li><a href="admin.html" class="nav-link">Admin Dashboard</a></li>
+          <li><a href="about-contact.html" class="nav-link">About &amp; Contact</a></li>
+          <li class="nav-cta">
+            <a href="report.html" class="btn btn-primary btn-sm">🚨 Emergency SOS</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container request-page-wrapper">
+
+      <!-- Section Header -->
+      <div class="section-header">
+        <span class="comic-badge">PRIORITY 1 DISPATCH</span>
+        <h1 class="section-title">TRANSMIT EMERGENCY DISTRESS SIGNAL</h1>
+        <p class="section-subtitle">
+          Complete the form below to transmit real-time incident telemetry to Aegis Tactical Command.
+          All transmissions receive an official tracking ticket.
+        </p>
+      </div>
+
+      <!-- Distress Form Card -->
+      <section class="request-form-card">
+        <form id="helpRequestForm" novalidate>
+          
+          <!-- Row 1: Name and Contact Phone -->
+          <div class="form-grid-row">
+            <div class="form-group">
+              <label for="fullName" class="form-label">
+                Full Name <span class="required-star">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="fullName" 
+                class="comic-input" 
+                placeholder="e.g. Johnathan Kent" 
+                autocomplete="name"
+                required
+              >
+              <span class="field-error" id="fullNameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contactNumber" class="form-label">
+                Contact Number <span class="required-star">*</span>
+              </label>
+              <input 
+                type="tel" 
+                id="contactNumber" 
+                class="comic-input" 
+                placeholder="e.g. +1 555-019-2834" 
+                autocomplete="tel"
+                required
+              >
+              <span class="field-hint">Mobile number for encrypted dispatch coordinator verification.</span>
+              <span class="field-error" id="contactNumberError"></span>
+            </div>
+          </div>
+
+          <!-- Row 2: Email and Location -->
+          <div class="form-grid-row">
+            <div class="form-group">
+              <label for="email" class="form-label">
+                Email Address <span class="required-star">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                class="comic-input" 
+                placeholder="e.g. citizen@metropoliscivic.org" 
+                autocomplete="email"
+                required
+              >
+              <span class="field-error" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="location" class="form-label">
+                Incident Location / Sector <span class="required-star">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="location" 
+                class="comic-input" 
+                placeholder="e.g. Gotham Heights - 7th Ave Suspension Bridge" 
+                required
+              >
+              <span class="field-hint">Street name, sector, building number, or prominent landmark.</span>
+              <span class="field-error" id="locationError"></span>
+            </div>
+          </div>
+
+          <!-- Row 3: Category and Preferred Hero -->
+          <div class="form-grid-row">
+            <div class="form-group">
+              <label for="category" class="form-label">
+                Emergency Category <span class="required-star">*</span>
+              </label>
+              <select id="category" class="comic-select" required>
+                <option value="">-- Select Incident Classification --</option>
+                <option value="Rescue">Civilian Rescue &amp; Evacuation</option>
+                <option value="Crime">Armed Crime / Supervillain Incursion</option>
+                <option value="Disaster">Natural / Seismic / Infrastructure Disaster</option>
+                <option value="Other">Mystical / Biohazard / Cyber Anomaly</option>
+              </select>
+              <span class="field-error" id="categoryError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="preferredHero" class="form-label">
+                Requested Hero Operative (Optional)
+              </label>
+              <select id="preferredHero" class="comic-select">
+                <option value="Any Available Hero">-- Auto-Dispatch (Nearest Available Hero) --</option>
+              </select>
+              <span class="field-hint">Leave on Auto-Dispatch for fastest algorithmic tactical response.</span>
+            </div>
+          </div>
+
+          <!-- Row 4: Urgency Level Dial -->
+          <div class="form-group">
+            <label class="form-label">
+              Threat Urgency Level <span class="required-star">*</span>
+            </label>
+            <div class="urgency-selector-grid">
+              
+              <!-- Low -->
+              <label class="urgency-option-card urgency-low">
+                <input type="radio" name="urgency" value="Low" id="urgencyLow">
+                <div class="urgency-content">
+                  <span class="urgency-title">🟢 Low</span>
+                  <span class="urgency-desc">Non-critical hazard</span>
+                </div>
+              </label>
+
+              <!-- Medium -->
+              <label class="urgency-option-card urgency-med">
+                <input type="radio" name="urgency" value="Medium" id="urgencyMedium" checked>
+                <div class="urgency-content">
+                  <span class="urgency-title">🟡 Medium</span>
+                  <span class="urgency-desc">Active localized incident</span>
+                </div>
+              </label>
+
+              <!-- High -->
+              <label class="urgency-option-card urgency-high">
+                <input type="radio" name="urgency" value="High" id="urgencyHigh">
+                <div class="urgency-content">
+                  <span class="urgency-title">🔴 High</span>
+                  <span class="urgency-desc">Lives in imminent peril</span>
+                </div>
+              </label>
+
+              <!-- Critical -->
+              <label class="urgency-option-card urgency-crit">
+                <input type="radio" name="urgency" value="Critical" id="urgencyCritical">
+                <div class="urgency-content">
+                  <span class="urgency-title">⚡ Omega</span>
+                  <span class="urgency-desc">Catastrophic threat</span>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- Row 5: Description -->
+          <div class="form-group">
+            <label for="description" class="form-label">
+              Incident Description &amp; Tactical Details <span class="required-star">*</span>
+            </label>
+            <textarea 
+              id="description" 
+              class="comic-textarea" 
+              placeholder="Detail what happened, estimated civilian count, structural hazards, or hostile abilities observed..."
+              required
+            ></textarea>
+            <span class="field-hint">Minimum 10 characters detailing the crisis.</span>
+            <span class="field-error" id="descriptionError"></span>
+          </div>
+
+          <!-- Form Actions Bar -->
+          <div class="form-actions-bar">
+            <div class="form-disclaimer">
+              🔒 <strong>Encrypted Aegis Comlink:</strong> Submissions are logged immediately to local storage and relayed to tactical dispatch. False alarms are subject to metropolitan superhuman sanctions.
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg pulse-glow" id="submitHelpBtn">
+              ⚡ Broadcast Distress Signal
+            </button>
+          </div>
+
+        </form>
+      </section>
+
+      <!-- "My Requests" Live Status Table -->
+      <section class="my-requests-section">
+        <div class="my-requests-header">
+          <div>
+            <span class="comic-badge badge-alt">ACTIVE TRANSPONDER LOG</span>
+            <h2 class="section-title" style="font-size: 1.8rem; margin: 0.25rem 0 0;">MY DISTRESS SIGNALS</h2>
+          </div>
+          <p class="text-muted" style="margin: 0; font-size: 0.9rem;">
+            Real-time status tracking stored in your browser session
+          </p>
+        </div>
+
+        <div class="table-responsive-wrapper">
+          <table class="comic-table" aria-label="My submitted help requests">
+            <thead>
+              <tr>
+                <th scope="col">Ticket ID</th>
+                <th scope="col">Category</th>
+                <th scope="col">Location</th>
+                <th scope="col">Urgency</th>
+                <th scope="col">Assigned Hero</th>
+                <th scope="col">Status</th>
+                <th scope="col">Logged</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="myRequestsTableBody">
+              <!-- Populated dynamically via js/request.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="emptyRequestsMsg" class="empty-requests-banner" style="display: none;">
+          <p>No active emergency requests found in your local transmitter log.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Ticket Confirmation Modal -->
+  <div class="comic-modal-backdrop" id="confirmationModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="comic-modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">⚡ SIGNAL BROADCAST CONFIRMED!</h3>
+      </div>
+      <div class="modal-body">
+        <p class="confirmation-instructions">
+          Your distress transmission has pierced the Aegis defense grid. An emergency ticket has been cut and queued for heroic intervention.
+        </p>
+
+        <div class="ticket-receipt-card">
+          <div class="ticket-meta-label">OFFICIAL DISPATCH TICKET ID</div>
+          <div class="ticket-receipt-id" id="modalTicketId">#HERO-0000-X</div>
+
+          <div class="ticket-meta-grid">
+            <div class="ticket-meta-item">
+              <span class="ticket-meta-label">Assigned Target:</span>
+              <span class="ticket-meta-val" id="modalHeroName">Auto-Dispatch</span>
+            </div>
+            <div class="ticket-meta-item">
+              <span class="ticket-meta-label">Threat Level:</span>
+              <span class="ticket-meta-val"><span id="modalUrgency" class="urgency-pill urgency-medium">Medium</span></span>
+            </div>
+            <div class="ticket-meta-item" style="grid-column: 1 / -1;">
+              <span class="ticket-meta-label">Incident Sector:</span>
+              <span class="ticket-meta-val" id="modalLocation">Metropolis Core</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-muted" style="font-size: 0.85rem; text-align: center;">
+          Remain in a secure perimeter if possible. You can monitor live status under the <strong>My Distress Signals</strong> table below.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="closeModalBtn">
+          Acknowledge &amp; Track Signal
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="../assets/favicon.svg" alt="Aegis Shield" class="brand-icon">
+            <span>AEGIS HEROES</span>
+          </div>
+          <p class="footer-desc">
+            The Aegis Hero Portal is the authorized civilian interface for the Global Superhuman Defense Coalition. Operating under the World Defense Accords to protect innocent lives across all sectors.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Portal Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home Overview</a></li>
+            <li><a href="heroes.html">Hero Roster</a></li>
+            <li><a href="report.html">Report Distress Call</a></li>
+            <li><a href="admin.html">Admin Command Center</a></li>
+            <li><a href="about-contact.html">About &amp; Inquiries</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Emergency Zones</h4>
+          <ul class="footer-links">
+            <li><a href="heroes.html">Metropolis Core</a></li>
+            <li><a href="heroes.html">Gotham Heights</a></li>
+            <li><a href="heroes.html">Coast City</a></li>
+            <li><a href="heroes.html">Starling Bay</a></li>
+            <li><a href="heroes.html">Neo-Tokyo Sector</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Priority Hotline</h4>
+          <div class="footer-hotline">
+            <div class="footer-hotline-title">24/7 METRO CRISIS FREQUENCY</div>
+            <div class="footer-hotline-num">1-800-AEGIS-HERO</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Aegis Superhero Help Portal. Authorized under Superhuman Defense Protocol 12-A.</div>
+        <div>Built with HTML5, CSS3, &amp; Vanilla JS &bull; LocalStorage Persistent</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/request.js"></script>
+</body>
+</html>

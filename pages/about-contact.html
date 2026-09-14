@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About &amp; Contact | Aegis Superhuman Coalition</title>
+  <meta name="description" content="Learn about the Aegis Superhuman Defense Coalition, civilian safety accords, and contact administrative liaisons.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/forms.css">
+  <style>
+    .about-mission-card {
+      background-color: var(--color-surface);
+      border: var(--comic-border-thick);
+      box-shadow: var(--comic-shadow);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .about-lead {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #334155;
+      margin-bottom: 1.5rem;
+    }
+    .protocol-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .protocol-card {
+      background-color: #f8fafc;
+      border: var(--comic-border);
+      box-shadow: var(--comic-shadow-sm);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+    .protocol-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .protocol-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.5px;
+      color: var(--color-secondary);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .protocol-text {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      line-height: 1.6;
+    }
+    .contact-layout-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+    }
+    .contact-info-panel {
+      background-color: var(--color-secondary);
+      color: #ffffff;
+      border: var(--comic-border-thick);
+      box-shadow: var(--comic-shadow);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      height: fit-content;
+    }
+    .contact-info-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--color-accent);
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .hq-detail-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .hq-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .hq-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .hq-heading {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--color-accent);
+      letter-spacing: 0.5px;
+      margin-bottom: 0.2rem;
+    }
+    .hq-desc {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+    .success-alert-banner {
+      display: none;
+      background-color: #ecfdf5;
+      border: 2px solid #10b981;
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      color: #065f46;
+      font-weight: 600;
+      animation: modalPop 0.3s ease-out;
+    }
+    @media (max-width: 767px) {
+      .protocol-grid { grid-template-columns: 1fr; }
+      .contact-layout-grid { grid-template-columns: 1fr; }
+      .about-mission-card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="Aegis Hero Portal Homepage">
+        <img src="../assets/favicon.svg" alt="Aegis Shield" class="brand-icon">
+        <span>AEGIS <span class="brand-highlight">HEROES</span></span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- Nav Links -->
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="heroes.html" class="nav-link">Heroes</a></li>
+          <li><a href="report.html" class="nav-link">Report an Issue</a></li>
+          <li><a href="admin.html" class="nav-link">Admin Dashboard</a></li>
+          <li><a href="about-contact.html" class="nav-link active">About &amp; Contact</a></li>
+          <li class="nav-cta">
+            <a href="report.html" class="btn btn-primary btn-sm">🚨 Emergency SOS</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container py-5">
+
+      <!-- Section Header -->
+      <div class="section-header">
+        <span class="comic-badge">THE DEFENSE CHARTER</span>
+        <h1 class="section-title">ABOUT THE AEGIS NETWORK</h1>
+        <p class="section-subtitle">
+          Chartered in 2024 to bridge civilian emergency services with registered superhuman operatives through ethical oversight and zero-latency communication.
+        </p>
+      </div>
+
+      <!-- About Mission Narrative -->
+      <section class="about-mission-card">
+        <h2 style="font-family: var(--font-display); font-size: 2rem; color: var(--color-secondary); margin-bottom: 0.75rem;">
+          SHIELDING HUMANITY THROUGH VERIFIED ALLIANCES
+        </h2>
+        <p class="about-lead">
+          When rogue meta-humans, planetary catastrophes, and runaway rogue AI threaten metropolitan civil infrastructure, traditional first responders often face insurmountable firepower disparities.
+        </p>
+        <p class="about-lead" style="margin-bottom: 0;">
+          The Aegis Help Portal was established as an open civilian transponder grid. Using decentralized tactical sensors and algorithmic dispatch routing, we match distress signals with operatives equipped with the exact counter-abilities required—minimizing property damage and neutralizing catastrophic casualties in minutes.
+        </p>
+
+        <!-- 3 Core Accords -->
+        <div class="protocol-grid">
+          <div class="protocol-card">
+            <div class="protocol-icon">⚖️</div>
+            <h3 class="protocol-title">Civilian Priority Rule</h3>
+            <p class="protocol-text">
+              Operatives are legally bound under the Geneva Metahuman Accord to prioritize innocent civilian evacuation over villain confrontation at all times.
+            </p>
+          </div>
+
+          <div class="protocol-card">
+            <div class="protocol-icon">🛡️</div>
+            <h3 class="protocol-title">Minimal Collateral Force</h3>
+            <p class="protocol-text">
+              All tactical interventions undergo real-time acoustic and kinetic dampening to safeguard historical buildings, bridges, and power grids.
+            </p>
+          </div>
+
+          <div class="protocol-card">
+            <div class="protocol-icon">🔒</div>
+            <h3 class="protocol-title">Encrypted Citizen Privacy</h3>
+            <p class="protocol-text">
+              Distress coordinates are end-to-end encrypted to shield reporting citizens from adversarial reprisal or tracking by criminal syndicates.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section & Form -->
+      <div class="section-header" style="margin-top: 4rem;">
+        <span class="comic-badge badge-alt">MUNICIPAL LIAISON DESK</span>
+        <h2 class="section-title">COMMUNICATION &amp; INQUIRIES</h2>
+        <p class="section-subtitle">
+          Have an administrative inquiry, press request, or municipal partnership proposal? Reach out to our human liaison staff.
+        </p>
+      </div>
+
+      <!-- Success Alert Banner -->
+      <div id="contactSuccessBanner" class="success-alert-banner" role="alert">
+        ⚡ <strong>Transmission Confirmed!</strong> Your message has been routed to Aegis Civilian Command. A liaison officer will follow up within 2 hours.
+      </div>
+
+      <div class="contact-layout-grid">
+        
+        <!-- Left: Contact Form -->
+        <section class="request-form-card" style="margin-bottom: 0;">
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="contactName" class="form-label">
+                Your Full Name <span class="required-star">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="contactName" 
+                class="comic-input" 
+                placeholder="e.g. Commissioner James Gordon" 
+                required
+              >
+              <span class="field-error" id="contactNameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contactEmail" class="form-label">
+                Official Contact Email <span class="required-star">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="contactEmail" 
+                class="comic-input" 
+                placeholder="e.g. j.gordon@gothampd.gov" 
+                required
+              >
+              <span class="field-error" id="contactEmailError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contactSubject" class="form-label">
+                Inquiry Topic <span class="required-star">*</span>
+              </label>
+              <select id="contactSubject" class="comic-select" required>
+                <option value="">-- Select Topic --</option>
+                <option value="Municipal Defense Alliance">Municipal Defense Alliance</option>
+                <option value="Hero Accreditation & Registration">Hero Accreditation &amp; Registration</option>
+                <option value="Press & Media Relations">Press &amp; Media Relations</option>
+                <option value="Collateral Damage Restitution">Collateral Damage Restitution</option>
+                <option value="General Public Inquiry">General Public Inquiry</option>
+              </select>
+              <span class="field-error" id="contactSubjectError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage" class="form-label">
+                Inquiry Message <span class="required-star">*</span>
+              </label>
+              <textarea 
+                id="contactMessage" 
+                class="comic-textarea" 
+                placeholder="Please outline the nature of your inquiry in detail (minimum 15 characters)..."
+                required
+              ></textarea>
+              <span class="field-error" id="contactMessageError"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 1rem;">
+              ✉️ Send Inquiry to Headquarters
+            </button>
+          </form>
+        </section>
+
+        <!-- Right: Headquarters Info Panel -->
+        <aside class="contact-info-panel">
+          <h3 class="contact-info-title">CENTRAL HEADQUARTERS</h3>
+          <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">
+            The Aegis Strategic Citadel is situated in orbital geostationary transit with regional liaison outposts in all major metropolitan territories.
+          </p>
+
+          <div class="hq-detail-list">
+            <div class="hq-item">
+              <span class="hq-icon">🏢</span>
+              <div>
+                <h4 class="hq-heading">Metropolis Terrestrial Base</h4>
+                <p class="hq-desc">Aegis Spire, Tower 7, Sector 1, Metropolis Core</p>
+              </div>
+            </div>
+
+            <div class="hq-item">
+              <span class="hq-icon">📡</span>
+              <div>
+                <h4 class="hq-heading">Sub-Orbital Comlink</h4>
+                <p class="hq-desc">Direct relay: Sat-Band 14.882 GHz (Civilian Frequency)</p>
+              </div>
+            </div>
+
+            <div class="hq-item">
+              <span class="hq-icon">📞</span>
+              <div>
+                <h4 class="hq-heading">Administrative Line</h4>
+                <p class="hq-desc">+1 (800) 555-AEGIS-HQ (Mon-Fri 08:00 - 18:00 EST)</p>
+              </div>
+            </div>
+
+            <div class="hq-item">
+              <span class="hq-icon">🚨</span>
+              <div>
+                <h4 class="hq-heading">Active Emergency Notice</h4>
+                <p class="hq-desc">For ongoing attacks or life-threatening crises, do not use this contact form. Use the <a href="report.html" style="color: var(--color-accent); text-decoration: underline;">Emergency Distress Signal</a> page.</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="../assets/favicon.svg" alt="Aegis Shield" class="brand-icon">
+            <span>AEGIS HEROES</span>
+          </div>
+          <p class="footer-desc">
+            The Aegis Hero Portal is the authorized civilian interface for the Global Superhuman Defense Coalition. Operating under the World Defense Accords to protect innocent lives across all sectors.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Portal Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home Overview</a></li>
+            <li><a href="heroes.html">Hero Roster</a></li>
+            <li><a href="report.html">Report Distress Call</a></li>
+            <li><a href="admin.html">Admin Command Center</a></li>
+            <li><a href="about-contact.html">About &amp; Inquiries</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Emergency Zones</h4>
+          <ul class="footer-links">
+            <li><a href="heroes.html">Metropolis Core</a></li>
+            <li><a href="heroes.html">Gotham Heights</a></li>
+            <li><a href="heroes.html">Coast City</a></li>
+            <li><a href="heroes.html">Starling Bay</a></li>
+            <li><a href="heroes.html">Neo-Tokyo Sector</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Priority Hotline</h4>
+          <div class="footer-hotline">
+            <div class="footer-hotline-title">24/7 METRO CRISIS FREQUENCY</div>
+            <div class="footer-hotline-num">1-800-AEGIS-HERO</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Aegis Superhero Help Portal. Authorized under Superhuman Defense Protocol 12-A.</div>
+        <div>Built with HTML5, CSS3, &amp; Vanilla JS &bull; LocalStorage Persistent</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/contact.js"></script>
+</body>
+</html>

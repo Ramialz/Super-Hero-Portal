@@ -1,0 +1,760 @@
+/* ==========================================================================
+   Superhero Help Portal - Main Comic Design System & Core Styles
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Comic Primary Palette */
+  --color-primary: #d90429;       /* Hero Crimson */
+  --color-primary-dark: #b7094c;  /* Deep Crimson */
+  --color-secondary: #1d3557;     /* Comic Cobalt Navy */
+  --color-secondary-light: #457b9d;
+  --color-accent: #ffb703;        /* Action Gold */
+  --color-accent-dark: #fb8500;   /* Energetic Amber */
+  --color-dark: #111827;          /* Jet Ink Black */
+  --color-light: #ffffff;
+  --color-bg: #f8f9fa;            /* Clean Comic Canvas */
+  --color-surface: #ffffff;
+  --color-border: #111827;
+  --color-muted: #64748b;
+
+  /* Status Colors */
+  --color-available: #10b981;
+  --color-on-mission: #f59e0b;
+  --color-off-duty: #6b7280;
+  --color-resolved: #10b981;
+  --color-pending: #f59e0b;
+
+  /* Typography */
+  --font-display: 'Bangers', cursive, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Comic Layout & Shadows */
+  --comic-border: 2.5px solid var(--color-border);
+  --comic-border-thick: 3.5px solid var(--color-border);
+  --comic-shadow: 4px 4px 0px var(--color-border);
+  --comic-shadow-sm: 2px 2px 0px var(--color-border);
+  --comic-shadow-lg: 6px 6px 0px var(--color-border);
+  --comic-shadow-hover: 6px 6px 0px var(--color-border);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Base Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-dark);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle Comic Halftone Dot Canvas Pattern */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(#111827 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+  opacity: 0.035;
+  z-index: -1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   Layout Containers & Utilities
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.main-content {
+  flex: 1 0 auto;
+  padding-bottom: 4rem;
+}
+
+.text-center { text-align: center; }
+.text-muted { color: var(--color-muted); }
+.bold { font-weight: 700; }
+.py-5 { padding-top: 2rem; padding-bottom: 2rem; }
+
+/* --------------------------------------------------------------------------
+   Comic Badges & Typography
+   -------------------------------------------------------------------------- */
+.comic-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  padding: 0.25rem 0.75rem;
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  transform: rotate(-1deg);
+}
+
+.comic-badge.badge-alt {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+}
+
+.section-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: 1px;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  line-height: 1.1;
+}
+
+.section-subtitle {
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  max-width: 680px;
+  margin: 0.5rem auto 0;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons (Comic Pop Styling)
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0.65rem 1.5rem;
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--comic-shadow-hover);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--color-border);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+}
+.btn-primary:hover {
+  background-color: #ef233c;
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+}
+.btn-secondary:hover {
+  background-color: #2b4c7e;
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+}
+.btn-accent:hover {
+  background-color: #ffc229;
+}
+
+.btn-success {
+  background-color: #10b981;
+  color: var(--color-light);
+}
+.btn-success:hover {
+  background-color: #059669;
+}
+
+.btn-danger-outline {
+  background-color: #fff1f2;
+  color: var(--color-primary);
+}
+.btn-danger-outline:hover {
+  background-color: #ffe4e6;
+}
+
+.btn-sm {
+  font-size: 1rem;
+  padding: 0.4rem 0.9rem;
+}
+
+.btn-xs {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.6rem;
+  border-width: 2px;
+}
+
+.btn-lg {
+  font-size: 1.4rem;
+  padding: 0.85rem 2rem;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Header & Responsive Navbar
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-surface);
+  border-bottom: var(--comic-border-thick);
+  box-shadow: 0 4px 10px rgba(17, 24, 39, 0.06);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  padding: 0 1.25rem;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  color: var(--color-secondary);
+  letter-spacing: 0.5px;
+}
+
+.brand-icon {
+  width: 38px;
+  height: 38px;
+  filter: drop-shadow(2px 2px 0px var(--color-border));
+}
+
+.brand-highlight {
+  color: var(--color-primary);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0.45rem 0.9rem;
+  color: var(--color-secondary);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+  background-color: #f1f5f9;
+}
+
+.nav-link.active {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+  border: 2px solid var(--color-border);
+  box-shadow: 2px 2px 0px var(--color-border);
+}
+
+.nav-cta {
+  margin-left: 0.5rem;
+}
+
+/* Mobile Hamburger Toggle */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 44px;
+  height: 44px;
+  background: var(--color-surface);
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-md);
+  padding: 8px;
+  cursor: pointer;
+  z-index: 102;
+}
+
+.hamburger-btn .bar {
+  width: 100%;
+  height: 3.5px;
+  background-color: var(--color-dark);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+.hamburger-btn.is-active .bar:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+.hamburger-btn.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-btn.is-active .bar:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-secondary);
+  color: #f8fafc;
+  border-top: var(--comic-border-thick);
+  padding: 3.5rem 0 2rem;
+  margin-top: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-brand .brand-logo {
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.footer-desc {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--color-accent);
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-links a {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.footer-hotline {
+  background-color: rgba(217, 4, 41, 0.2);
+  border: 2px dashed var(--color-accent);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+}
+
+.footer-hotline-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  margin-bottom: 0.35rem;
+}
+
+.footer-hotline-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Chips, Status & Urgency Badges
+   -------------------------------------------------------------------------- */
+.status-badge, .status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+}
+
+.status-available {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+.status-available .status-dot { background-color: #10b981; }
+
+.status-on-mission {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+.status-on-mission .status-dot { background-color: #f59e0b; }
+
+.status-off-duty {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+.status-off-duty .status-dot { background-color: #9ca3af; }
+
+.status-pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+.status-pending .status-dot { background-color: #f59e0b; }
+
+.status-in-progress {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+.status-in-progress .status-dot { background-color: #3b82f6; }
+
+.status-resolved {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+.status-resolved .status-dot { background-color: #10b981; }
+
+.urgency-pill {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border);
+}
+.urgency-low { background-color: #e0f2fe; color: #0369a1; }
+.urgency-medium { background-color: #fef3c7; color: #b45309; }
+.urgency-high { background-color: #fee2e2; color: #b91c1c; }
+.urgency-critical { background-color: #7f1d1d; color: #ffffff; animation: pulseGlow 1.5s infinite; }
+
+.category-chip {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background-color: #e2e8f0;
+  color: var(--color-dark);
+  border: 1px solid var(--color-border);
+}
+.category-chip.cat-rescue { background-color: #cffafe; color: #155e75; }
+.category-chip.cat-crime { background-color: #fee2e2; color: #991b1b; }
+.category-chip.cat-disaster { background-color: #ffedd5; color: #9a3412; }
+.category-chip.cat-other { background-color: #f3e8ff; color: #6b21a8; }
+
+.comic-ticket-badge {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  color: var(--color-secondary);
+  background-color: #f1f5f9;
+  padding: 0.2rem 0.5rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Toast Notifications
+   -------------------------------------------------------------------------- */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 400px;
+  pointer-events: none;
+}
+
+.comic-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--color-surface);
+  color: var(--color-dark);
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all var(--transition-base);
+}
+
+.comic-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.comic-toast .toast-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.toast-success { border-left: 8px solid #10b981; }
+.toast-error { border-left: 8px solid var(--color-primary); }
+.toast-info { border-left: 8px solid var(--color-secondary); }
+.toast-warning { border-left: 8px solid var(--color-accent); }
+
+/* --------------------------------------------------------------------------
+   Comic Modal Popup
+   -------------------------------------------------------------------------- */
+.comic-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(3px);
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.comic-modal-backdrop.is-open {
+  display: flex;
+}
+
+.comic-modal {
+  background-color: var(--color-surface);
+  border: var(--comic-border-thick);
+  box-shadow: var(--comic-shadow-lg);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 520px;
+  animation: modalPop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+}
+
+.modal-header {
+  background-color: var(--color-secondary);
+  color: #ffffff;
+  padding: 1.25rem 1.5rem;
+  border-bottom: var(--comic-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+  color: var(--color-accent);
+}
+
+.modal-body {
+  padding: 1.75rem 1.5rem;
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  background-color: #f8fafc;
+  border-top: var(--comic-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Animations
+   -------------------------------------------------------------------------- */
+@keyframes modalPop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(217, 4, 41, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(217, 4, 41, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(217, 4, 41, 0); }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Media Queries (Mobile First < 768px, Tablet 768-1024px, Desktop 1024px+)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-surface);
+    border-bottom: var(--comic-border-thick);
+    box-shadow: var(--comic-shadow);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 0.85rem;
+    align-items: stretch;
+    transform: translateY(-110%);
+    transition: transform var(--transition-base);
+    z-index: 101;
+  }
+
+  .nav-menu.is-open {
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 0.75rem;
+    border: 2px solid transparent;
+  }
+
+  .nav-cta {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-width: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}

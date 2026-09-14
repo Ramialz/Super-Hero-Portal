@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dispatch Command | Aegis Hero Network</title>
+  <meta name="description" content="Central dispatcher console for monitoring emergency requests, allocating superhuman assets, and tracking resolution status.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="Aegis Hero Portal Homepage">
+        <img src="../assets/favicon.svg" alt="Aegis Shield" class="brand-icon">
+        <span>AEGIS <span class="brand-highlight">HEROES</span></span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- Nav Links -->
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="heroes.html" class="nav-link">Heroes</a></li>
+          <li><a href="report.html" class="nav-link">Report an Issue</a></li>
+          <li><a href="admin.html" class="nav-link active">Admin Dashboard</a></li>
+          <li><a href="about-contact.html" class="nav-link">About &amp; Contact</a></li>
+          <li class="nav-cta">
+            <a href="report.html" class="btn btn-primary btn-sm">🚨 Emergency SOS</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container py-5">
+
+      <!-- Admin Top Header Bar -->
+      <div class="admin-header-bar">
+        <div>
+          <span class="comic-badge">TACTICAL DISPATCH HQ</span>
+          <h1 class="section-title" style="margin-top: 0.35rem;">EMERGENCY RESPONSE CONSOLE</h1>
+        </div>
+        <div class="admin-live-pulse">
+          <span class="live-beacon-dot"></span>
+          DEFENSE GRID LIVE // LEVEL 5 TELEMETRY
+        </div>
+      </div>
+
+      <!-- KPI Metrics Row -->
+      <section class="admin-kpi-grid">
+        <!-- Total Requests -->
+        <div class="kpi-card kpi-total">
+          <div class="kpi-info">
+            <span class="kpi-number" id="statTotalCount">0</span>
+            <span class="kpi-label">Total Signals Logged</span>
+          </div>
+          <div class="kpi-icon-wrap">📋</div>
+        </div>
+
+        <!-- Pending Requests -->
+        <div class="kpi-card kpi-pending">
+          <div class="kpi-info">
+            <span class="kpi-number" id="statPendingCount">0</span>
+            <span class="kpi-label">Pending / Unresolved</span>
+          </div>
+          <div class="kpi-icon-wrap">⏳</div>
+        </div>
+
+        <!-- Resolved Incidents -->
+        <div class="kpi-card kpi-resolved">
+          <div class="kpi-info">
+            <span class="kpi-number" id="statResolvedCount">0</span>
+            <span class="kpi-label">Crises Neutralized</span>
+          </div>
+          <div class="kpi-icon-wrap">🛡️</div>
+        </div>
+      </section>
+
+      <!-- Admin Toolbar: Status Filters, Search, and Reset -->
+      <section class="admin-toolbar-card">
+        <!-- Filter Buttons -->
+        <div class="admin-filter-group" role="group" aria-label="Filter incidents by status">
+          <button type="button" class="admin-filter-btn active" data-status="all">All Incidents</button>
+          <button type="button" class="admin-filter-btn" data-status="pending">Pending</button>
+          <button type="button" class="admin-filter-btn" data-status="in-progress">In Progress</button>
+          <button type="button" class="admin-filter-btn" data-status="resolved">Resolved</button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="admin-search-wrap">
+          <input 
+            type="text" 
+            id="adminSearch" 
+            class="comic-input" 
+            placeholder="Search citizen, ticket ID, sector..." 
+            aria-label="Filter requests table"
+          >
+        </div>
+
+        <!-- Reset Mock Data Button -->
+        <div>
+          <button type="button" id="resetDemoDataBtn" class="btn btn-secondary btn-sm" title="Restore sample demonstration dataset">
+            🔄 Reset Demo Seed Data
+          </button>
+        </div>
+      </section>
+
+      <!-- Incidents Data Table -->
+      <section class="admin-table-card">
+        <div class="table-responsive-wrapper">
+          <table class="comic-table" aria-label="Dispatcher Incident Records">
+            <thead>
+              <tr>
+                <th scope="col">Ticket ID</th>
+                <th scope="col">Reporting Citizen</th>
+                <th scope="col">Location</th>
+                <th scope="col">Hazard</th>
+                <th scope="col">Urgency</th>
+                <th scope="col">Status</th>
+                <th scope="col">Timestamp</th>
+                <th scope="col">Dispatcher Action</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody">
+              <!-- Rendered dynamically via js/admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="../assets/favicon.svg" alt="Aegis Shield" class="brand-icon">
+            <span>AEGIS HEROES</span>
+          </div>
+          <p class="footer-desc">
+            The Aegis Hero Portal is the authorized civilian interface for the Global Superhuman Defense Coalition. Operating under the World Defense Accords to protect innocent lives across all sectors.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Portal Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home Overview</a></li>
+            <li><a href="heroes.html">Hero Roster</a></li>
+            <li><a href="report.html">Report Distress Call</a></li>
+            <li><a href="admin.html">Admin Command Center</a></li>
+            <li><a href="about-contact.html">About &amp; Inquiries</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Emergency Zones</h4>
+          <ul class="footer-links">
+            <li><a href="heroes.html">Metropolis Core</a></li>
+            <li><a href="heroes.html">Gotham Heights</a></li>
+            <li><a href="heroes.html">Coast City</a></li>
+            <li><a href="heroes.html">Starling Bay</a></li>
+            <li><a href="heroes.html">Neo-Tokyo Sector</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Priority Hotline</h4>
+          <div class="footer-hotline">
+            <div class="footer-hotline-title">24/7 METRO CRISIS FREQUENCY</div>
+            <div class="footer-hotline-num">1-800-AEGIS-HERO</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Aegis Superhero Help Portal. Authorized under Superhuman Defense Protocol 12-A.</div>
+        <div>Built with HTML5, CSS3, &amp; Vanilla JS &bull; LocalStorage Persistent</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

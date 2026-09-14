@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Tactical Dossier | Aegis Hero Registry</title>
+  <meta name="description" content="Detailed tactical overview, combat metrics, superpowers, and dispatch clearance for registered superheroes.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/heroes.css">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="Aegis Hero Portal Homepage">
+        <img src="../assets/favicon.svg" alt="Aegis Shield" class="brand-icon">
+        <span>AEGIS <span class="brand-highlight">HEROES</span></span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- Nav Links -->
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="heroes.html" class="nav-link active">Heroes</a></li>
+          <li><a href="report.html" class="nav-link">Report an Issue</a></li>
+          <li><a href="admin.html" class="nav-link">Admin Dashboard</a></li>
+          <li><a href="about-contact.html" class="nav-link">About &amp; Contact</a></li>
+          <li class="nav-cta">
+            <a href="report.html" class="btn btn-primary btn-sm">🚨 Emergency SOS</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-content">
+    <div class="container" id="heroDetailContainer">
+      <!-- Dynamic Hero Profile Rendered via js/hero-detail.js -->
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="../assets/favicon.svg" alt="Aegis Shield" class="brand-icon">
+            <span>AEGIS HEROES</span>
+          </div>
+          <p class="footer-desc">
+            The Aegis Hero Portal is the authorized civilian interface for the Global Superhuman Defense Coalition. Operating under the World Defense Accords to protect innocent lives across all sectors.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Portal Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home Overview</a></li>
+            <li><a href="heroes.html">Hero Roster</a></li>
+            <li><a href="report.html">Report Distress Call</a></li>
+            <li><a href="admin.html">Admin Command Center</a></li>
+            <li><a href="about-contact.html">About &amp; Inquiries</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Emergency Zones</h4>
+          <ul class="footer-links">
+            <li><a href="heroes.html">Metropolis Core</a></li>
+            <li><a href="heroes.html">Gotham Heights</a></li>
+            <li><a href="heroes.html">Coast City</a></li>
+            <li><a href="heroes.html">Starling Bay</a></li>
+            <li><a href="heroes.html">Arctic Enclave</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Priority Hotline</h4>
+          <div class="footer-hotline">
+            <div class="footer-hotline-title">24/7 METRO CRISIS FREQUENCY</div>
+            <div class="footer-hotline-num">1-800-AEGIS-HERO</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Aegis Superhero Help Portal. Authorized under Superhuman Defense Protocol 12-A.</div>
+        <div>Built with HTML5, CSS3, &amp; Vanilla JS &bull; LocalStorage Persistent</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/hero-detail.js"></script>
+</body>
+</html>

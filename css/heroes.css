@@ -1,0 +1,625 @@
+/* ==========================================================================
+   Superhero Help Portal - Heroes Roster & Detail Styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Filter & Search Controls Bar
+   -------------------------------------------------------------------------- */
+.filter-toolbar-card {
+  background-color: var(--color-surface);
+  border: var(--comic-border-thick);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter-toolbar-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.search-input-wrap {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  pointer-events: none;
+  color: var(--color-muted);
+}
+
+.comic-input, .comic-select {
+  width: 100%;
+  height: 48px;
+  padding: 0.65rem 1rem;
+  background-color: #ffffff;
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  transition: all var(--transition-fast);
+}
+
+.comic-input:focus, .comic-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(217, 4, 41, 0.2), var(--comic-shadow-sm);
+}
+
+.search-input-wrap .comic-input {
+  padding-left: 2.75rem;
+}
+
+.filter-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+}
+
+.results-count-badge {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  color: var(--color-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Heroes Card Grid
+   -------------------------------------------------------------------------- */
+.heroes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.hero-card {
+  background-color: var(--color-surface);
+  border: var(--comic-border-thick);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+}
+
+.hero-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--comic-shadow-hover);
+}
+
+.hero-card-banner {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem;
+  position: relative;
+  border-bottom: var(--comic-border);
+}
+
+.hero-card-avatar {
+  width: 90px;
+  height: 90px;
+  filter: drop-shadow(3px 3px 0px var(--color-border));
+}
+
+.hero-card-avatar .hero-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-card-banner .status-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.hero-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.hero-card-header {
+  margin-bottom: 0.85rem;
+}
+
+.hero-alias {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  letter-spacing: 0.5px;
+  color: var(--color-secondary);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.hero-real-name {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.hero-card-power {
+  margin-bottom: 1rem;
+}
+
+.power-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.power-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 0.15rem;
+}
+
+.hero-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.meta-icon {
+  margin-right: 0.25rem;
+}
+
+/* Mini Stats 4-Column Bar */
+.hero-stats-mini {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: auto;
+}
+
+.mini-stat {
+  background-color: #f1f5f9;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.2rem;
+  text-align: center;
+}
+
+.mini-stat-val {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-secondary);
+  line-height: 1;
+}
+
+.mini-stat-lbl {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--color-muted);
+  margin-top: 0.15rem;
+}
+
+.hero-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+/* Empty State */
+.empty-state-panel {
+  grid-column: 1 / -1;
+  background-color: var(--color-surface);
+  border: var(--comic-border-thick);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.empty-title {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  letter-spacing: 1px;
+  color: var(--color-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.empty-desc {
+  max-width: 500px;
+  margin: 0 auto 1.5rem;
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Hero Detail View / Tactical Dossier
+   -------------------------------------------------------------------------- */
+.dossier-wrapper {
+  padding: 1.5rem 0 3rem;
+}
+
+.dossier-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.back-link {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--color-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  background-color: #f1f5f9;
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-sm);
+}
+
+.back-link:hover {
+  background-color: var(--color-accent);
+}
+
+.dossier-id-tag {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+  background-color: #fee2e2;
+  padding: 0.35rem 0.85rem;
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+.dossier-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 2.5rem;
+}
+
+.dossier-visual-panel {
+  background-color: var(--color-surface);
+  border: var(--comic-border-thick);
+  border-top-width: 8px;
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: fit-content;
+}
+
+.dossier-avatar-box {
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-bottom: var(--comic-border);
+}
+
+.dossier-avatar-box .hero-svg {
+  width: 130px;
+  height: 130px;
+  filter: drop-shadow(4px 4px 0px var(--color-border));
+}
+
+.dossier-status-pill {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border);
+  box-shadow: var(--comic-shadow-sm);
+}
+
+.dossier-meta-card {
+  padding: 1.75rem 1.5rem;
+}
+
+.dossier-alias {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  letter-spacing: 0.5px;
+  color: var(--color-secondary);
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.dossier-realname {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+}
+
+.dossier-tagline {
+  font-style: italic;
+  font-weight: 600;
+  color: #334155;
+  background-color: #f8fafc;
+  padding: 0.65rem 0.85rem;
+  border-left: 4px solid var(--color-accent);
+  margin-bottom: 1.5rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.dossier-spec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.spec-label {
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.spec-value {
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.dossier-cta-box {
+  margin-top: 1.5rem;
+}
+
+.dossier-cta-note {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  text-align: center;
+  margin-top: 0.6rem;
+}
+
+/* Dossier Info Panel */
+.dossier-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dossier-section {
+  background-color: var(--color-surface);
+  border: var(--comic-border-thick);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.section-badge-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.dossier-bio-text {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #334155;
+}
+
+/* Stat Bar Chart */
+.stat-bars-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.stat-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.stat-name {
+  color: var(--color-secondary);
+}
+
+.stat-value {
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+.stat-track {
+  height: 20px;
+  background-color: #f1f5f9;
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  position: relative;
+}
+
+.stat-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.25) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.25) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 16px 16px;
+}
+
+.stat-strength { background-color: #d90429; }
+.stat-speed { background-color: #0284c7; }
+.stat-durability { background-color: #15803d; }
+.stat-iq { background-color: #7c3aed; }
+
+.gear-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.gear-chip {
+  background-color: #f8fafc;
+  border: 1.5px solid var(--color-border);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* Other Operatives List */
+.other-heroes-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.other-heroes-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.other-hero-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  background-color: #f8fafc;
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.other-hero-pill:hover {
+  background-color: #fef08a;
+  transform: translateY(-2px);
+}
+
+.other-hero-avatar {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.other-hero-avatar .hero-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.other-hero-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.other-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-secondary);
+  line-height: 1.1;
+}
+
+.other-city {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Layout for Heroes & Dossier
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .filter-toolbar-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .heroes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dossier-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .other-heroes-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .dossier-section {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .filter-toolbar-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .dossier-grid {
+    grid-template-columns: 320px 1fr;
+  }
+}

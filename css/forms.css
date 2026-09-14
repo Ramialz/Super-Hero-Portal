@@ -1,0 +1,378 @@
+/* ==========================================================================
+   Superhero Help Portal - Forms & My Requests Stylesheet
+   ========================================================================== */
+
+.request-page-wrapper {
+  padding: 1.5rem 0 3.5rem;
+}
+
+.request-form-card {
+  background-color: var(--color-surface);
+  border: var(--comic-border-thick);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.form-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-grid-row .form-group {
+  margin-bottom: 0;
+}
+
+.form-label {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-transform: uppercase;
+}
+
+.required-star {
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.field-hint {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-top: 0.1rem;
+}
+
+.comic-textarea {
+  min-height: 120px;
+  padding: 0.75rem 1rem;
+  background-color: #ffffff;
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-dark);
+  resize: vertical;
+  transition: all var(--transition-fast);
+}
+
+.comic-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(217, 4, 41, 0.2), var(--comic-shadow-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Validation States
+   -------------------------------------------------------------------------- */
+.comic-input.is-invalid, 
+.comic-select.is-invalid, 
+.comic-textarea.is-invalid {
+  border-color: var(--color-primary) !important;
+  background-color: #fff8f8;
+  box-shadow: 0 0 0 3px rgba(217, 4, 41, 0.25) !important;
+}
+
+.comic-input.is-valid, 
+.comic-select.is-valid, 
+.comic-textarea.is-valid {
+  border-color: #10b981 !important;
+  background-color: #f6fdf9;
+}
+
+.field-error {
+  display: none;
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-top: 0.35rem;
+  animation: shake 0.25s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* --------------------------------------------------------------------------
+   Urgency Level Selector Dial
+   -------------------------------------------------------------------------- */
+.urgency-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.urgency-option-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.urgency-option-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.urgency-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.75rem;
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-md);
+  background-color: #ffffff;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.urgency-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.urgency-desc {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+/* Radio Checked States */
+.urgency-option-card input[type="radio"]:checked + .urgency-content {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--comic-shadow);
+}
+
+.urgency-low input[type="radio"]:checked + .urgency-content {
+  background-color: #e0f2fe;
+  border-color: #0369a1;
+  color: #0369a1;
+}
+
+.urgency-med input[type="radio"]:checked + .urgency-content {
+  background-color: #fef3c7;
+  border-color: #b45309;
+  color: #b45309;
+}
+
+.urgency-high input[type="radio"]:checked + .urgency-content {
+  background-color: #fee2e2;
+  border-color: #b91c1c;
+  color: #b91c1c;
+}
+
+.urgency-crit input[type="radio"]:checked + .urgency-content {
+  background-color: #7f1d1d;
+  border-color: #111827;
+  color: #ffffff;
+}
+.urgency-crit input[type="radio"]:checked + .urgency-content .urgency-desc {
+  color: #fecaca;
+}
+
+/* --------------------------------------------------------------------------
+   Submit Actions Bar
+   -------------------------------------------------------------------------- */
+.form-actions-bar {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 1.5rem;
+  border-top: var(--comic-border);
+}
+
+.form-disclaimer {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  max-width: 460px;
+}
+
+/* --------------------------------------------------------------------------
+   "My Requests" Table Section
+   -------------------------------------------------------------------------- */
+.my-requests-section {
+  background-color: var(--color-surface);
+  border: var(--comic-border-thick);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.my-requests-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.table-responsive-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: var(--comic-border);
+  border-radius: var(--radius-md);
+  background-color: #ffffff;
+}
+
+.comic-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.comic-table th {
+  background-color: var(--color-secondary);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  padding: 0.9rem 1rem;
+  text-transform: uppercase;
+  border-bottom: var(--comic-border);
+  white-space: nowrap;
+}
+
+.comic-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: middle;
+}
+
+.comic-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.truncate-cell {
+  display: block;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+
+.assigned-hero-badge {
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.empty-requests-banner {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Confirmation Modal Breakdown
+   -------------------------------------------------------------------------- */
+.ticket-receipt-card {
+  background: #f8fafc;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin: 1.25rem 0;
+  text-align: center;
+}
+
+.ticket-receipt-id {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+  text-shadow: 1px 1px 0px var(--color-border);
+}
+
+.ticket-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  text-align: left;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+}
+
+.ticket-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-meta-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-muted);
+  text-transform: uppercase;
+}
+
+.ticket-meta-val {
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.confirmation-instructions {
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Rules
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .request-form-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .form-grid-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .urgency-selector-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .form-actions-bar {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions-bar .btn {
+    width: 100%;
+  }
+
+  .my-requests-section {
+    padding: 1.5rem 1rem;
+  }
+}
